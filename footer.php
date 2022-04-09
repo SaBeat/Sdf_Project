@@ -1,5 +1,5 @@
 
           <h2><?php echo $sitename ?></h3>
-          <p>Copyright &copy; 2016 - developed by <a href="http://juniordev.net">JuniorDev</a></p>
+          <p>Copyright &copy; 2022 - developed by <b>Sabit and Nigar</b></p>
   </body>
 </html>

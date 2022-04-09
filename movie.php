@@ -1,3 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<style>
+.tag{
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+}
+
+</style>
+
+</head>
+<body>
+
+
 <?php
   include "conf/info.php";
   
@@ -38,7 +55,7 @@
               ?>
           </p>
           <p>Overview : <?php echo $movie_id->overview ?></p>
-          <p>Release Date : <?php $rel = date('d F Y', strtotime($movie_id->release_date)); echo $rel ?>
+          <p>Release Date : <?php $rel = date_default_timezone_set($movie_id->release_date); echo $rel ?>
           <p>Production Companies :
               <?php
                 foreach($movie_id->production_companies as $pc){
@@ -59,12 +76,13 @@
 
     <hr>
     <h3>Similar Movies</h3>
-      <ul>
+      <ul class="tag">
       <?php
         $count = 4;
         $output=""; 
         foreach($movie_similar_id->results as $sim){
-          $output.='<li><a href="movie.php?id='.$sim->id.'"><img src="http://image.tmdb.org/t/p/w300'.$sim->backdrop_path.'"><h5>'.$sim->title.'</h5></a></li>';
+          $output.='<li style="display:flex"><a style="flex:0.5" href="movie.php?id='.$sim->id.'"><img src="http://image.tmdb.org/t/p/w300'.$sim->backdrop_path.'">
+          <h5 style="flex:0.5">'.$sim->title.'</h5></a></li>';
           if($count <=0){
             break;
             $count--;
@@ -83,3 +101,6 @@
 <?php
   include_once "footer.php";
 ?>
+
+</body>
+</html>

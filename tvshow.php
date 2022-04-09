@@ -9,7 +9,7 @@
     <?php
     if(isset($_GET['id'])){
       $id_tv = $_GET['id'];
-      $rel = date('d F Y', strtotime($tv_id->last_air_date)); 
+      $rel =stdate_default_timezone_setrtotime($tv_id->last_air_date); 
     ?>
     <h1><?php echo $tv_id->original_name ?></h1>
     <?php
@@ -35,7 +35,7 @@
               ?>
     </p>
     <p>Overview : <?php echo $tv_id->overview ?></p>
-    <p>First Air Date : <?php $rel = date('d F Y', strtotime($tv_id->first_air_date)); echo $rel ?></p>
+    <p>First Air Date : <?php $rel = date_default_timezone_set($tv_id->first_air_date); echo $rel ?></p>
     <p>Production Companies : 
               <?php
                 foreach($tv_id->production_companies as $pc){

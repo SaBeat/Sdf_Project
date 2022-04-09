@@ -1,3 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<style>
+		.tag{
+		display:flex;
+		flex-wrap:wrap;
+		gap:10px;
+		}
+	</style>
+</head>
+<body>
+
 <?php
 $input=$_GET['search'];
 $channel=$_GET['channel'];
@@ -9,7 +22,7 @@ include_once "api/api_search.php";
 ?>
     <h3>Result Search: <em><?php echo $input?></em></h3>
     <hr>
-    <ul>
+    <ul class="tag">
 <?php
 	if($channel=="movie"){	
                 foreach($search->results as $results){
@@ -57,3 +70,10 @@ include_once "api/api_search.php";
  <?php
 include_once('footer.php');
 ?>
+
+
+</body>
+</html>
+
+
+
