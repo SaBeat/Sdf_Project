@@ -2,7 +2,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title></title>
+
+  <title>Upcoming</title>
 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <style>
@@ -21,12 +22,10 @@
   $title="Upcoming Movies";
   include_once "header.php";
 ?>
-    <h1> Upcoming Movies ~</h1>
+    <h1>Upcoming Movies</h1>
     <?php
       include_once "api/api_upcoming.php";
-      $min =  date_default_timezone_set($upcoming->dates->minimum);
-      $max =  date_default_timezone_set($upcoming->dates->maximum);
-      echo "<h5><sub>coming soon from </sub> <span>". $min . "</span> , <sub>until</sub> <span>" . $max . "</span></h5>";
+    
     ?>
     <hr>
     <ul class="tag">

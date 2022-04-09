@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Index</title>
+  <title>Top-Rated Movies</title>
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
