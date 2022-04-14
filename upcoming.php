@@ -12,6 +12,9 @@
   flex-wrap:wrap;
   gap:10px;
 }
+a{
+  text-decoration:none;
+}
 
 </style>
 </head>
@@ -32,9 +35,9 @@
       <?php
         foreach($upcoming->results as $p){
           echo '<li><a href="movie.php?id=' . $p->id . '"><img src="'.$imgurl_1.''. $p->poster_path . '" width="300" height="400">
-          <h4>' . $p->original_title . " (" . substr($p->release_date, 0, 4) . ")</h4>
-          <h5><em>Rate : " . $p->vote_average . " | Vote : " . $p->vote_count . " | Popularity : " . round($p->popularity) . "</em></h5>
-          <h5>Release : ". date_default_timezone_set($p->release_date) . "</h5></a></li>";
+          <center style="color:white"<h2>' . $p->original_title . " (" . substr($p->release_date, 0, 4) . ")</h2>
+          <h4><em>Rate : " . $p->vote_average . " | Vote : " . $p->vote_count . " | Popularity : " . round($p->popularity) . "</em></h4>
+          <h4>Release : ". date_default_timezone_set($p->release_date) . "</h4></center></a></li>";
         }
       ?>
     </ul>

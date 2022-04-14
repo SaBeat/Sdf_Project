@@ -10,7 +10,9 @@
   flex-wrap:wrap;
   gap:10px;
 }
-
+a{
+  text-decoration:none;
+}
 </style>
 
 </head>
@@ -30,7 +32,8 @@
         <ul class="tag">
           <?php
             foreach($tv_top->results as $tt){
-              echo '<li><a href="tvshow.php?id=' . $tt->id . '"><img src="'.$imgurl_2.''. $tt->poster_path . '"><h4>' . $tt->original_name . "</h4><h5><em>First Air Date : ".$tt->first_air_date."<br />Popularity : " . round($tt->popularity) . "</em></h5></a></li>";
+              echo '<li><a href="tvshow.php?id=' . $tt->id . '"><img src="'.$imgurl_2.''. $tt->poster_path . '">
+              <center style="color:white" <h2>' . $tt->original_name . "</h2><h4><em>First Air Date : ".$tt->first_air_date."<br />Popularity : " . round($tt->popularity) . "</em></h4></center></a></li>";
             }
           ?>
         </ul>

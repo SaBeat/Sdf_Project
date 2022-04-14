@@ -1,6 +1,5 @@
 <?php
 
-
 $cb = curl_init();
 curl_setopt($cb, CURLOPT_URL, "http://api.themoviedb.org/3/movie/upcoming?api_key=" . $apikey);
 curl_setopt($cb, CURLOPT_RETURNTRANSFER, TRUE);

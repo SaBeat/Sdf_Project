@@ -11,6 +11,9 @@
   flex-wrap:wrap;
   gap:10px;
 }
+a{
+  text-decoration:none;
+}
 
 </style>
 
@@ -34,9 +37,9 @@
           <div class="card">
           <img class="image_popular" src="'.$imgurl_1.''. $p->poster_path . '" width="300" height="400">
           <div class="container">
-          <h4 style="text-align:center;">' . $p->original_title . " (" . substr($p->release_date, 0, 4) . ")</h4>
-          <h5><em> Rate : " . $p->vote_average . " | Vote : " . $p->vote_count . " | Popularity : " 
-          . round($p->popularity) . "</em></h5>
+          <center style="color:white;<h2 style="text-align:center;">' . $p->original_title . " (" . substr($p->release_date, 0, 4) . ")</h2>
+          <h4><em> Rate : " . $p->vote_average . " | Vote : " . $p->vote_count . " | Popularity : " 
+          . round($p->popularity) . "</em></h4></center>
           </div>
           </div>
 

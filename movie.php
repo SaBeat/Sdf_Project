@@ -10,6 +10,9 @@
   flex-wrap:wrap;
   gap:10px;
 }
+a{
+  text-decoration:none;
+}
 
 </style>
 
@@ -20,7 +23,7 @@
 <?php
   include "conf/info.php";
   
-  $id_movie = $_GET['id'];
+    $id_movie = $_GET['id'];
     include_once "api/api_movie_id.php";
     include_once "api/api_movie_video_id.php";
     include_once "api/api_movie_similar.php";
@@ -33,15 +36,12 @@
     if(isset($_GET['id'])){
     $id_movie = $_GET['id']; 
     ?>
-    <h1><?php echo $movie_id->original_title ?></h1>
-    <?php
-      echo "<h5>~ ".$movie_id->tagline." ~</h5>";
-    ?>
+    <h1><?php echo $movie_id->original_title?></h1>
 
     <?php 
 
       foreach($movie_video_id->results as $video){
-                    echo '<iframe width="560" height="315" src="'."https://www.youtube.com/embed/".$video->key.'" frameborder="0" allowfullscreen></iframe>';
+                    echo '<iframe width="560" height="315" style="margin:8px;" src="'."https://www.youtube.com/embed/".$video->key.'" frameborder="0" allowfullscreen></iframe>';
       }
      ?>"
 
@@ -83,8 +83,14 @@
         $count = 4;
         $output=""; 
         foreach($movie_similar_id->results as $sim){
-          $output.='<li style="display:flex"><a style="flex:0.5" href="movie.php?id='.$sim->id.'"><img src="http://image.tmdb.org/t/p/w300'.$sim->backdrop_path.'">
-          <h5 style="flex:0.5">'.$sim->title.'</h5></a></li>';
+          $backdrop 	= $sim->backdrop_path;
+          if (empty($backdrop) && is_null($backdrop)){
+            $backdrop =  dirname($_SERVER['PHP_SELF']).'/image/no-gambar.jpg';
+          } else {
+            $backdrop = 'http://image.tmdb.org/t/p/w300'.$backdrop;
+          }
+          $output.='<li style="display:flex"><a style="flex:0.5" href="movie.php?id='.$sim->id.'"><img src="'.$backdrop.'">
+          <center><h3 style="flex:0.5; color:white;">'.$sim->title.'</h3></center></a></li>';
           if($count <=0){
             break;
             $count--;

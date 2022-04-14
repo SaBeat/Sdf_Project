@@ -18,7 +18,7 @@ session_start();
                   
                   if($rows_fetched == 1){
                            $_SESSION['user'] = $id;
-                           header("Location: profile.php");
+                           header("Location: /sdf/index.php");
                   }
                           
                   else

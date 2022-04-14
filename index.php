@@ -11,7 +11,9 @@
   flex-wrap:wrap;
   gap:10px;
 }
-
+a {
+    text-decoration:none;
+  }
 </style>
 </head>
 <body>
@@ -30,8 +32,8 @@
           echo '<li>
          
           <a href="movie.php?id=' . $p->id . '"><img src="http://image.tmdb.org/t/p/w300'. $p->poster_path . '" width="300" height="400"> 
-          <h4>' . $p->original_title . " (" . substr($p->release_date, 0, 4) . ")</h4>
-          <h5><em>Rate : " . $p->vote_average . " |  Vote : " . $p->vote_count . "</em></h5></a>
+          <center style="color:white;><h2 style="color:white;">' . $p->original_title . " (" . substr($p->release_date, 0, 4) . ")</h2>
+          <h4><em>Rate : " . $p->vote_average . " |  Vote : " . $p->vote_count . "</em></h4></center></a>
 
 
           </li>";

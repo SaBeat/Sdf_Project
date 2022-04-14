@@ -1,3 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Tv Shows</title>
+
+<style>
+  
+.tag{
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+}
+a{
+  text-decoration:none;
+}
+</style>
+
+</head>
+<body>
+
 <?php
   $id_tv = $_GET['id'];
   include "conf/info.php";
@@ -9,17 +29,14 @@
     <?php
     if(isset($_GET['id'])){
       $id_tv = $_GET['id'];
-      $rel =stdate_default_timezone_setrtotime($tv_id->last_air_date); 
+      
     ?>
-    <h1><?php echo $tv_id->original_name ?></h1>
-    <?php
-      echo "<h5>~ <sub>Last Air Date</sub> : <span>".$rel."</span> ~</h5>";
-    ?>
+    <h1><?php echo $tv_id->original_name?></h1>
 
     <?php 
 
       foreach($tv_video_id->results as $video){
-                    echo '<iframe width="560" height="315" src="'."https://www.youtube.com/embed/".$video->key.'" frameborder="0" allowfullscreen></iframe>';
+                    echo '<iframe width="560" height="315" style="margin:8px;" src="'."https://www.youtube.com/embed/".$video->key.'" frameborder="0" allowfullscreen></iframe>';
       }
      ?>"
 
@@ -35,7 +52,6 @@
               ?>
     </p>
     <p>Overview : <?php echo $tv_id->overview ?></p>
-    <p>First Air Date : <?php $rel = date_default_timezone_set($tv_id->first_air_date); echo $rel ?></p>
     <p>Production Companies : 
               <?php
                 foreach($tv_id->production_companies as $pc){
@@ -61,12 +77,19 @@
     <p>Vote Count : <?php echo $tv_id->vote_count ?></p>
     <hr>
     <h3>Similar TV Show</h3>
-    <ul>
+    <ul class="tag">
       <?php
         $count = 4;
         $output=""; 
         foreach($tv_id_similar->results as $sim){
-          $output.='<li><a href="tvshow.php?id='.$sim->id.'"><img src="http://image.tmdb.org/t/p/w300'.$sim->backdrop_path.'"><h5>'.$sim->original_name.'</h5></a></li>';
+          $backdrop 	= $sim->backdrop_path;
+          if (empty($backdrop) && is_null($backdrop)){
+            $backdrop =  dirname($_SERVER['PHP_SELF']).'/image/no-gambar.jpg';
+          } else {
+            $backdrop = 'http://image.tmdb.org/t/p/w300'.$backdrop;
+          }
+          $output.='<li><a href="tvshow.php?id='.$sim->id.'"><img src="'.$backdrop.'" width="300" height="270">
+          <center style="color:white"><h3>'.$sim->original_name.'</h3></center></a></li>';
           if($count <=0){
             break;
             $count--;
@@ -86,3 +109,9 @@
 <?php
   include_once "footer.php";
 ?>
+
+</body>
+</html>
+
+
+
