@@ -27,6 +27,8 @@ a {
     <hr>
     <ul class="tag">
       <?php
+      
+       
         include_once "api/api_toprated.php";
         foreach($toprated->results as $p){
           echo '<li>

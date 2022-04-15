@@ -11,7 +11,7 @@
                   else
                            include "database.php";
                   {
-                           $query = "SELECT COUNT(*) as count from user_table where email = '{$email}';";
+                           $query = "SELECT COUNT(*) as count from `user_login` where email = '{$email}';";
                            $run = mysqli_query($con, $query);
                            $get_row = mysqli_fetch_assoc($run);
                            if($get_row['count'] != 0){
@@ -36,5 +36,4 @@
                   }
          }
          else
-                  header("Location: register.php?code=1");//Wrong request
-?>
+                  header("Location: register.php?code=1");

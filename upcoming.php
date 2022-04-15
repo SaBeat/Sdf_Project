@@ -27,6 +27,7 @@ a{
 ?>
     <h1>Upcoming Movies</h1>
     <?php
+    
       include_once "api/api_upcoming.php";
     
     ?>

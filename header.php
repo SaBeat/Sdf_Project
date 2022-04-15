@@ -1,3 +1,7 @@
+<?php 
+     session_start(); 
+     ?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -33,6 +37,33 @@ code {
   padding: .2em .4em;
 }
 
+.btn_logout{
+  background: #FF4742;
+  border: 1px solid #FF4742;
+  border-radius: 6px;
+  box-shadow: rgba(0, 0, 0, 0.1) 1px 2px 4px;
+  box-sizing: border-box;
+  color: #FFFFFF;
+  cursor: pointer;
+  width:180px;
+  font-family: nunito,roboto,proxima-nova,"proxima nova",sans-serif;
+  font-size: 16px;
+  font-weight: 800;
+  line-height: 16px;
+  min-height: 40px;
+  outline: 0;
+  margin: 5px; 
+  padding: 14px 14px;
+  text-align: center;
+  text-rendering: geometricprecision;
+  text-transform: none;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  vertical-align: middle;
+
+}
+
 .content {
   background-color: #fff;
   border-radius: 8px;
@@ -49,6 +80,9 @@ code {
 .content ul {
   margin: .5em 2em;
   padding: 0;
+}
+a{
+  color:white;
 }
 
 #footer {
@@ -89,6 +123,7 @@ code {
   font-weight: 300;
 }
 .links > a {
+ 
   color: #9ab;
   padding: .75em;
   text-align: center;
@@ -222,6 +257,8 @@ code {
   </head>
   <body>
 
+ 
+
 
   <nav class="links" style="--items: 5;">
     <a href="index.php">Home</a>
@@ -234,9 +271,7 @@ code {
 
       <form class="form_class" action="search.php" method="get">
 
-      <div class="flex-container">
-
-   
+      <div class="flex-container">  
       
       <input type="text" class="form__input" id="name" name="search" placeholder="Type Title Here" required />
      
@@ -259,6 +294,14 @@ code {
 
      
 
+    <?php
+    $link = isset($_SESSION['user']) ? '/sdf/db/logout_index.php' :  '/sdf/db/logout.php';
+    $title = isset($_SESSION['user']) ? "Log out" :  "Log in";
+    ?>
+
+     <a style="font-size:16px;letter-spaceing:4px;padding:5px;" href="<?=$link?>"><?=$title?></a>
+   
+     
 
      </div>
     </form>

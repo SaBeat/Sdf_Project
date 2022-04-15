@@ -20,7 +20,7 @@ session_start();
                            $_SESSION['user'] = $id;
                            header("Location: /sdf/index.php");
                   }
-                          
+                        
                   else
                            header("Location: login.php?code=3");                  
                  

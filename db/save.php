@@ -4,7 +4,7 @@ if(isset($_SESSION['user']) && isset($_POST['password']) && isset($_POST['confir
         
          
          if($password != $confirmpass){
-                  header("Location: profile.php?code=9");//Passwords don't match
+                  header("Location: profile.php?code=9");
                   die();
          }
          include "database.php";

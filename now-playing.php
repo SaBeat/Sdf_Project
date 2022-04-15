@@ -21,6 +21,7 @@ a{
 <body>
 
 <?php
+ 
   include "conf/info.php";
   $title="Now Playing Movies";
   include_once "header.php";

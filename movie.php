@@ -14,6 +14,20 @@ a{
   text-decoration:none;
 }
 
+.main_div{
+  width:100%;
+  display:flex;
+}
+.image_div{
+  width:40%;
+ 
+}
+
+.text_div{
+  width:60%;
+ 
+}
+
 </style>
 
 </head>
@@ -33,6 +47,12 @@ a{
 ?>
 
     <?php 
+      session_start();
+
+      if($_SESSION['user']){
+
+
+
     if(isset($_GET['id'])){
     $id_movie = $_GET['id']; 
     ?>
@@ -46,8 +66,15 @@ a{
      ?>"
 
     <hr>
-          <img src="<?php echo $imgurl_2 ?><?php echo $movie_id->poster_path ?>">
-          <p>Title : <?php echo $movie_id->original_title ?></p>
+    <div class="main_div">
+
+      <div class="image_div">
+        <img style="width:100%;" src="<?php echo $imgurl_2 ?><?php echo $movie_id->poster_path ?>">
+      </div>
+
+      <div class="text_div" style="font-size:16px;padding:8px;">
+
+      <p>Title : <?php echo $movie_id->original_title ?></p>
           <p>Tagline : <?php echo $movie_id->tagline ?></p>
           <p>Genres : 
               <?php
@@ -76,6 +103,13 @@ a{
           <p>Vote Average : <?php echo $movie_id->vote_average ?></p>
           <p>Vote Count : <?php echo $movie_id->vote_count ?></p>
 
+      </div>
+
+    </div>
+
+          
+          
+
     <hr>
     <h3>Similar Movies</h3>
       <ul class="tag">
@@ -103,6 +137,9 @@ a{
     <?php 
     } else{
       echo "<h5>Movie tidak ditemukan.</h5>";
+    }
+  }else{
+    echo '<center><p style="font-size:40px;margin-top:50px;">Please log in!</p></center>';
     }
     ?>
 

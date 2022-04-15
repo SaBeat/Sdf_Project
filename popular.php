@@ -29,6 +29,7 @@ a{
     <hr>
     <ul class="tag">
       <?php
+      
         include_once "api/api_popular.php";
         foreach($popular->results as $p){
 
@@ -51,7 +52,6 @@ a{
     </ul>
 
 <?php
-include_once "css/style.css";
   include_once "footer.php";
 ?>
 

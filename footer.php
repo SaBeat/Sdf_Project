@@ -91,8 +91,7 @@ height:100%;
 <body>
 
 <section>
-  <h1>Classy Footer</h1>
-  <h3>Hover over the circle below</h3>
+ 
 </section>
 <div class="footer">
   <div id="button"></div>

@@ -2,7 +2,7 @@
 session_start();
 if(isset($_SESSION['user']))
 {
-  header("Location: profile.php");
+  header("Location: /sdf/index.php");
          die();
 }
          $code = "";
@@ -11,7 +11,7 @@ if(isset($_SESSION['user']))
          {
                   switch($_GET['code'])
                   {
-                           case 1: $msg = "403 Forbidden! Directly access is denied!";                                   break;           
+                           case 1: $msg = "403 Forbidden! Directly access is denied!";  break;           
                            case 2: $msg = "Connection problem occured with database!"; break;           
                            case 3: $msg = "Email or password is incorrect!"; break;           
                            case 4: $msg = "Successfully logged out!"; $color = "green"; break;           

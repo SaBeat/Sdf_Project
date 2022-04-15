@@ -31,23 +31,22 @@ include_once "api/api_search.php";
                 foreach($search->results as $results){
 			$title 		= $results->title;
 			$id 		= $results->id;
-			
-			
+						
 			$backdrop 	= $results->backdrop_path;
 			if (empty($backdrop) && is_null($backdrop)){
 				$backdrop =  dirname($_SERVER['PHP_SELF']).'/image/no-gambar.jpg';
 			} else {
 				$backdrop = 'http://image.tmdb.org/t/p/w300'.$backdrop;
 			}
-			echo '<li>
+			echo '<li> 
 			 
-			   
-			 
-			   <a href="movie.php?id=' . $id . '"><img src="'.$backdrop.'" width="300" height="270"><center style="color:white;"><h2>'.$title.'</h2></center></a>
-			 
-			  
-			   
-			</li>';
+			 		  <a href="movie.php?id=' . $id . '">
+					   <div style="width:300px;height: 270px;padding-bottom:35px">
+					   <img src="'.$backdrop.'" width="300" height="270"><center style="color:white;"><h2>'.$title.'</h2></center>
+					   </div>
+					   </a>
+			 			   
+			     </li>';
 		}
         }elseif($channel=="tv"){
             foreach($search->results as $results){
@@ -60,9 +59,17 @@ include_once "api/api_search.php";
 			} else {
 				$backdrop = 'http://image.tmdb.org/t/p/w300'.$backdrop;
 			}
-			echo '<li><a href="tvshow.php?id=' . $id . '"><img src="'.$backdrop.'" width="300" height="270"><center style="color:white;"><h2>'.$title.'</h2></center></a></li>';
+			echo '<li><a href="tvshow.php?id=' . $id . '">
+			<div style="width:300px;height: 270px;padding-bottom:35px">
+
+			<img src="'.$backdrop.'" width="300" height="270">
+			 <center style="color:white;"><h2>'.$title.'</h2></center>
+
+			 </div>
+			 </a></li>';
 		}
         }
+	
         ?>
         </ul>
  <?php
